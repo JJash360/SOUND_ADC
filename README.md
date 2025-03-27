@@ -1,72 +1,46 @@
-Proyecto: Control de Variadores de Frecuencia con ESP32
+# Proyecto: Procesamiento de Audio en ESP32 con Bluetooth y Salidas PWM
 
-Autor
+Autor: Jashua Jafet Solon Aquino
 
-Jashua Jafet Solon Aquino
+## Descripción
+Este proyecto permite la recepción de audio mediante Bluetooth en un ESP32, la conversión de la señal de audio en cuatro bandas de frecuencia y la salida de señales PWM que pueden ser utilizadas para controlar dispositivos externos, como variadores de frecuencia o sistemas de iluminación.
 
-Descripción
+## Características
+- **Recepción de Audio Bluetooth**: Utiliza la librería `BluetoothA2DPSink` para recibir audio desde un dispositivo externo.
+- **Análisis de Frecuencia**: Se implementa una Transformada Rápida de Fourier (FFT) con `arduinoFFT` para dividir el audio en cuatro bandas de frecuencia: sub-bajos, bajos, medios y agudos.
+- **Generación de PWM**: Se generan señales PWM en cuatro pines del ESP32, cada una representando una banda de frecuencia específica.
+- **Suavizado de Señal**: Se aplica un factor de suavizado a la señal PWM para evitar fluctuaciones bruscas.
 
-Este proyecto permite la recepción de audio mediante Bluetooth en un ESP32, donde se realiza un análisis de la señal mediante FFT para dividirla en cuatro bandas de frecuencia (sub-bajos, bajos, medios y agudos). La intensidad de cada banda se convierte en una señal PWM que se envía a una placa de control de variadores de frecuencia.
+## Hardware Utilizado
+- ESP32
+- Módulo Bluetooth integrado en el ESP32
+- Variadores de frecuencia o dispositivos de salida compatibles con PWM
+- Circuito de potencia o amplificación si es necesario
 
-Características
+## Conexiones
+| Pin ESP32 | Función |
+|-----------|---------|
+| 23        | PWM Sub-Bajos |
+| 22        | PWM Bajos |
+| 21        | PWM Medios |
+| 19        | PWM Agudos |
 
-Recepción de audio por Bluetooth utilizando BluetoothA2DPSink.
+## Librerías Requeridas
+- `Arduino.h`
+- `arduinoFFT.h`
+- `BluetoothA2DPSink.h`
 
-Procesamiento de la señal mediante Transformada Rápida de Fourier (FFT) con la biblioteca arduinoFFT.
+## Instalación y Uso
+1. Instalar las librerías necesarias en el entorno de desarrollo (Arduino IDE, PlatformIO, etc.).
+2. Subir el código al ESP32.
+3. Conectar un dispositivo Bluetooth al ESP32 con el nombre `Ov. Familia Audio 360`.
+4. Observar la conversión del audio en señales PWM en los pines de salida.
 
-Salida de 4 señales PWM correspondientes a 4 bandas de frecuencia diferentes.
+## Licencia
+Este proyecto está licenciado bajo la **Licencia MIT**. Puedes usarlo, modificarlo y distribuirlo libremente, siempre y cuando se mencione la autoría original.
 
-Suavizado y ajuste de intensidades PWM con umbrales configurables.
+---
 
-Integración con una placa electrónica personalizada para el control de variadores de frecuencia.
-
-Requisitos
-
-ESP32 DevKit V4
-
-Arduino IDE con bibliotecas:
-
-BluetoothA2DPSink
-
-arduinoFFT
-
-Fuente de alimentación adecuada
-
-Placa electrónica de control de variadores de frecuencia (diseñada por el autor)
-
-Conexión de Hardware
-
-ESP32
-
-Descripción
-
-23
-
-PWM Canal 1
-
-22
-
-PWM Canal 2
-
-21
-
-PWM Canal 3
-
-19
-
-PWM Canal 4
-
-Instalación y Uso
-
-Cargar el código en el ESP32 mediante Arduino IDE.
-
-Emparejar el ESP32 con un dispositivo Bluetooth bajo el nombre Ov. Familia Audio 360.
-
-Reproducir música desde un dispositivo Bluetooth.
-
-La señal de audio se procesará en tiempo real y se generarán las señales PWM correspondientes.
-
-Licencia
-
-Este proyecto se distribuye bajo la Licencia MIT. Puedes modificar y distribuir el código con la debida atribución al autor.
+## Contacto
+Para consultas o mejoras, puedes contactar a Jashua Jafet Solon Aquino.
 
