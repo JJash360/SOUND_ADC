@@ -42,5 +42,5 @@ Este proyecto está licenciado bajo la **Licencia MIT**. Puedes usarlo, modifica
 ---
 
 ## Contacto
-Para consultas o mejoras, puedes contactar a Jashua Jafet Solon Aquino.
+Para consultas o mejoras, puedes contactar a Jashua Jafet Solon Aquino +51 922455823.
 
